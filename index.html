@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SolidCircuits provides expert PCB and SMPS hardware design services in Bangladesh, offering precision and reliability for all your electronics needs.">
+    <meta name="keywords" content="PCB Design, SMPS Design, Prototyping, Hardware Design, Electronics, Bangladesh">
+    <meta property="og:title" content="SolidCircuits - PCB & Hardware Design Services">
+    <meta property="og:description" content="Your reliable partner for high-quality electronics design in Bangladesh.">
+    <meta property="og:image" content="URL_TO_IMAGE">
+    <meta property="og:url" content="URL_TO_YOUR_WEBSITE">
     <title>SolidCircuits - PCB & Hardware Design Services</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
+    <header role="banner">
         <div class="container">
             <h1>SolidCircuits</h1>
-            <nav>
+            <nav role="navigation">
                 <ul>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About Us</a></li>
@@ -27,9 +34,9 @@
         </div>
     </section>
 
-    <section id="services" class="services">
+    <section id="services" class="services" role="region" aria-labelledby="services-heading">
         <div class="container">
-            <h2>Our Services</h2>
+            <h2 id="services-heading">Our Services</h2>
             <div class="service-item">
                 <h3>PCB Design</h3>
                 <p>We offer custom PCB design services for various applications, ensuring high performance and reliability.</p>
@@ -45,25 +52,25 @@
         </div>
     </section>
 
-    <section id="about" class="about">
+    <section id="about" class="about" role="region" aria-labelledby="about-heading">
         <div class="container">
-            <h2>About Us</h2>
+            <h2 id="about-heading">About Us</h2>
             <p>SolidCircuits is a Bangladesh-based company specializing in PCB and SMPS hardware design. With a team of experienced engineers, we are committed to delivering top-notch solutions that meet your technical requirements and deadlines.</p>
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact" class="contact" role="region" aria-labelledby="contact-heading">
         <div class="container">
-            <h2>Contact Us</h2>
-            <form action="#" method="post">
+            <h2 id="contact-heading">Contact Us</h2>
+            <form action="#" method="post" role="form">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required aria-required="true">
 
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required aria-required="true">
 
                 <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
+                <textarea id="message" name="message" required aria-required="true"></textarea>
 
                 <button type="submit">Send Message</button>
             </form>
@@ -75,5 +82,13 @@
             <p>&copy; 2024 SolidCircuits. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Message sent!');
+            // You can handle the form submission here using AJAX or fetch API
+        });
+    </script>
 </body>
 </html>
