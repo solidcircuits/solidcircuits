@@ -28,11 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         /* General Styles */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
             line-height: 1.6;
+            background-color: #f5f5f5;
         }
 
         .container {
@@ -44,20 +45,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         /* Header */
         header {
-            background-color: #222;
-            color: #eee;
+            background-color: #333;
+            color: #fff;
             padding: 20px 0;
-            border-bottom: 4px solid #007BFF;
+            border-bottom: 5px solid #00bfae;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 2.8em;
             text-align: center;
+            font-weight: bold;
         }
 
         nav {
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         nav ul {
@@ -69,18 +72,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         nav ul li {
-            margin: 0 15px;
+            margin: 0 20px;
         }
 
         nav ul li a {
-            color: #eee;
+            color: #fff;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1em;
+            font-weight: 600;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
         }
 
         nav ul li a:hover {
-            color: #007BFF;
+            color: #00bfae;
         }
 
         /* Hero Section */
@@ -88,56 +92,85 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background: url('hero-image.jpg') no-repeat center center/cover;
             color: #fff;
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid #00bfae;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
         }
 
         .hero h2 {
             margin: 0;
-            font-size: 3em;
+            font-size: 3.5em;
             font-weight: 700;
+            z-index: 2;
+            position: relative;
         }
 
         .hero p {
-            font-size: 1.2em;
+            font-size: 1.3em;
             margin: 10px 0 0;
+            z-index: 2;
+            position: relative;
         }
 
         /* Services Section */
         .services {
-            background-color: #f4f4f4;
-            padding: 60px 20px;
+            background-color: #ffffff;
+            padding: 80px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin: 30px 0;
         }
 
         .services h2 {
             text-align: center;
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin-bottom: 40px;
             color: #333;
         }
 
         .service-item {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
         .service-item h3 {
-            font-size: 1.8em;
-            color: #007BFF;
+            font-size: 2em;
+            color: #00bfae;
         }
 
         .service-item p {
-            font-size: 1.1em;
+            font-size: 1.2em;
+            color: #666;
         }
 
         /* About Section */
         .about {
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
 
         .about h2 {
             text-align: center;
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin-bottom: 20px;
+            color: #333;
         }
 
         .about p {
@@ -148,25 +181,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         /* Contact Section */
         .contact {
-            background-color: #f4f4f4;
-            padding: 60px 20px;
+            background-color: #ffffff;
+            padding: 80px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin: 30px 0;
         }
 
         .contact h2 {
             text-align: center;
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin-bottom: 30px;
             color: #333;
         }
 
         .contact form {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
         .contact label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             font-weight: bold;
         }
 
@@ -177,42 +213,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-bottom: 20px;
             border: 2px solid #ddd;
             border-radius: 5px;
-            font-size: 1em;
+            font-size: 1.1em;
+            transition: border-color 0.3s ease;
         }
 
         .contact input:focus,
         .contact textarea:focus {
-            border-color: #007BFF;
+            border-color: #00bfae;
             outline: none;
         }
 
         .contact button {
-            background-color: #007BFF;
+            background-color: #00bfae;
             color: #fff;
             border: none;
             padding: 15px 25px;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 1.1em;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
         }
 
         .contact button:hover {
-            background-color: #0056b3;
+            background-color: #009b87;
         }
 
         /* Footer */
         footer {
-            background-color: #222;
-            color: #eee;
+            background-color: #333;
+            color: #fff;
             text-align: center;
             padding: 20px;
-            border-top: 4px solid #007BFF;
+            border-top: 5px solid #00bfae;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h2 {
-                font-size: 2.2em;
+                font-size: 2.5em;
             }
 
             .hero p {
@@ -222,13 +260,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             .services h2,
             .about h2,
             .contact h2 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
-            
+
             .service-item {
-                margin-bottom: 20px;
+                margin-bottom: 30px;
             }
-            
+
             .contact button {
                 width: 100%;
             }
